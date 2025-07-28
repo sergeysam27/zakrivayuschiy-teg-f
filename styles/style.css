@@ -54,10 +54,16 @@
 .card-header {
   font-size: 18px;
   color: #000;
+  padding: 4px 10px;
+}
+
+.card-content {
+  position: relative;
 }
 
 .card-img {
-
+  width: 696px;
+  height: 696px;
 }
 
 .label-text {
@@ -66,11 +72,18 @@
   font-family: var(--font-family);
   font-size: 14px;
   text-transform: uppercase;
-  color: #fff;
-  text-shadow: ;
-  position: relative;
-  top: 59px;
-  left: 573px;
+  color: #000;
+  -webkit-text-stroke: 1px #fff;
+  opacity: 0.5;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+@supports (text-stroke: 1px #fff) {
+  .label-text {
+    text-stroke: 1px #fff;
+  }
 }
 
 .card-text {
@@ -92,6 +105,11 @@
   gap: 12px;
   padding-bottom: 25px;
   padding-right: 25px;
+}
+
+.card__button {
+  width: 130px;
+  height: 38px;
 }
 
 .button-heart {
@@ -131,16 +149,24 @@
 
 .dialog[open] {
   position: fixed;
-  top: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 353px;
-  height: 191px;
+  padding: 30px;
 }
 
-.dialog[open] h2 {
+.dialog-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
+  gap: 20px;
+  padding-bottom: 30px;
+}
+
+.dialog-content h2 {
+  width: 234px;
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 14px;
@@ -149,15 +175,10 @@
   color: #000;
 }
 
-.dialog-content {
-  display: flex;
-  gap: 20px;
+.dialog__button {
+  width: 100%;
 }
 
 .dialog[open]::backdrop {
-  background-color: rgb(0 0 0 / 0.75);
-} 
-
-.page:has(.dialog[open]) {
-  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.75);
 }
