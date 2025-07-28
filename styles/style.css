@@ -13,4 +13,151 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  width: var(--content-width);
+  background-color: #fff;
+  border: 2px solid #000;
+  margin-top: 100px;
+  margin-bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  padding: clamp(122px, 9vw, 130px) clamp(16px, 12vw, 122.5px);
+}
+
+.header__title {
+  font-family: var(--font-family);
+  font-size: 65px;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.header__subtitle {
+  font-family: var(--font-family);
+  font-size: 23px;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.section__card {
+  width: var(--content-width);
+  background-color: #fff;
+  border: 2px solid #000;
+}
+
+.card-header {
+  font-size: 18px;
+  color: #000;
+}
+
+.card-img {
+
+}
+
+.label-text {
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+  font-family: var(--font-family);
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #fff;
+  text-shadow: ;
+  position: relative;
+  top: 59px;
+  left: 573px;
+}
+
+.card-text {
+  font-weight: 410;
+  font-size: 18px;
+  line-height: 117%;
+  color: #000;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 25px;
+  padding-right: 25px;
+}
+
+.button-heart {
+  background: transparent;
+  border: none;
+}
+
+.button {
+  font-family: var(--font-family);
+  border: 2px solid #000;
+  padding: 9px 17px;
+  font-size: 14px;
+  line-height: 90%;
+  color: #000;
+  background-color: #fff;
+}
+
+.footer {
+  width: var(--content-width);
+  padding: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__button {
+  height: 55px;
+  padding: 15px 20px;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-text {
+  font-family: var(--font-family);
+}
+
+.dialog[open] {
+  position: fixed;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 353px;
+  height: 191px;
+}
+
+.dialog[open] h2 {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.dialog-content {
+  display: flex;
+  gap: 20px;
+}
+
+.dialog[open]::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
+} 
+
+.page:has(.dialog[open]) {
+  overflow: hidden;
 }

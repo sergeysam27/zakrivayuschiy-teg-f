@@ -10,6 +10,15 @@
 
 body {
   margin: 0;
+  font-family: var(--second-family), sans-serif;
+  font-variation-settings: 'wght' var(--wght);
+  background: var(--main-bg);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.text_weight_bold {
+  font-variation-settings: 'wght' var(--wght);
 }
 
 h1,
