@@ -24,12 +24,11 @@
   border: 2px solid #000;
   margin-top: 100px;
   margin-bottom: 48px;
+  padding: clamp(7.625rem, 0.751vw + 7.449rem, 8.125rem) clamp(1rem, 9.953vw - 1.333rem, 7.625rem);
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: center;
-  justify-content: center;
-  height: clamp(20.438rem, 3.85vw + 19.535rem, 23rem);
 }
 
 .header__title {
@@ -57,7 +56,7 @@
   padding: 4px 10px;
 }
 
-.card-header h3 {
+.card-header h2 {
   font-size: 18px;
 }
 
@@ -66,36 +65,37 @@
 }
 
 .card-img {
-  width: 696px;
-  height: 696px;
+  object-fit: contain;
+  width: 100%;
+  object-position: center;
 }
 
-.section__card:nth-child(2) .card-img {
+.filter-blur {
   filter: blur(5px)
 }
 
-.section__card:nth-child(3) .card-img {
+.filter-sepia {
   filter: sepia(0.6);
 }
 
-.section__card:nth-child(4) .card-img {
+.filter-contrast {
   filter: contrast(250%);
 }
 
-.section__card:nth-child(5) .card-img {
+.filter-grayscale {
   filter: grayscale(80%);
 }
 
-.section__card:nth-child(6) .card-img {
+.filter-hue-rotate {
   filter: hue-rotate(0.5turn);
 }
 
-.section__card:nth-child(7) .card-img {
+.filter-invert {
   filter: invert(100%);
 }
 
-.section__card:nth-child(8) .card-img {
-  filter: saturate(390%);
+.filter-saturate {
+  filter: saturate(390%) opacity(0.3);;
 }
 
 .label-text {
@@ -105,7 +105,10 @@
   font-size: 14px;
   text-transform: uppercase;
   color: #000;
-  -webkit-text-stroke: 1px #fff;
+  text-shadow: 1px 1px #fff,
+              -1px -1px #fff,
+              -1px 1px #fff,
+              1px -1px #fff;
   position: absolute;
   top: 25px;
   right: 25px;
@@ -118,11 +121,10 @@
 }
 
 .card-text {
-  font-weight: 410;
   font-size: 18px;
   line-height: 117%;
   color: #000;
-  padding: 25px 25px 25px;
+  padding: 21px 25px 24px;
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -151,6 +153,7 @@
   padding: 0;
   width: 39px;
   height: 35px;
+  transition: outline 0.3s ease;
 }
 
 .button {
@@ -198,14 +201,14 @@
   box-shadow: 2px 2px 0 #000;
 }
 
-.footer {
+.section__button-save {
   width: var(--content-width);
   padding: 50px;
   display: flex;
   justify-content: center;
 }
 
-.footer__button {
+.button-save {
   height: 55px;
   padding: 15px 20px;
   display: flex;
@@ -226,7 +229,6 @@
   position: relative;
   color: #fff;
   mix-blend-mode: difference;
-  
 }
 
 .dialog[open] {
@@ -236,6 +238,7 @@
   justify-content: center;
   align-items: center;
   padding: 30px;
+  overflow: hidden;
 }
 
 .dialog-content {
@@ -250,7 +253,6 @@
 .dialog-content h2 {
   width: 234px;
   font-family: var(--font-family);
-  font-weight: 400;
   font-size: 14px;
   line-height: 150%;
   text-transform: uppercase;
@@ -259,6 +261,7 @@
 
 .dialog__button {
   width: 100%;
+  text-transform: uppercase;
 }
 
 .dialog[open]::backdrop {
@@ -332,19 +335,14 @@
 
 @media (width <= 375px) {
 
-  .card-img {
-    width: 371px;
-    height: 371px;
-  }
-
-  .footer__button {
+  .button-save {
     flex-direction: column;
     height: 84px;
     min-width: 306px;
     padding: 9px 18px;
   }
 
-  .footer__button svg {
+  .button-save svg {
     width: 28px;
     height: 28px;
   }
