@@ -114,9 +114,11 @@
   right: 25px;
 }
 
-@supports (text-stroke: 1px #fff) {
+@supports (text-stroke: 1px #fff) or (-webkit-text-stroke: 1px #fff) {
   .label-text {
+    text-shadow: none;
     text-stroke: 1px #fff;
+    -webkit-text-stroke: 1px #fff;
   }
 }
 
@@ -232,13 +234,11 @@
 }
 
 .dialog[open] {
-  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 30px;
-  overflow: hidden;
+  padding: 30px 39px;
 }
 
 .dialog-content {
@@ -251,7 +251,7 @@
 }
 
 .dialog-content h2 {
-  width: 234px;
+  width: clamp(12.25rem, 3.568vw + 11.414rem, 14.625rem);
   font-family: var(--font-family);
   font-size: 14px;
   line-height: 150%;
@@ -335,6 +335,10 @@
 
 @media (width <= 375px) {
 
+  .dialog[open] {
+    padding: 30px 39px;
+  }
+    
   .button-save {
     flex-direction: column;
     height: 84px;
